@@ -1,0 +1,34 @@
+/* =====================
+   APP LAYOUT ONLY
+===================== */
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 80px; /* navbar height */
+}
+
+/* =====================
+   GENERIC HELPERS
+===================== */
+
+.glass {
+  background: var(--glass-dark);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px;
+  }
+}

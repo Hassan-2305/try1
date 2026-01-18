@@ -1,0 +1,206 @@
+/* =====================
+   FOOTER BASE
+===================== */
+.footer {
+  position: relative;
+  margin-top: 8rem;
+  background: #020617;
+  /* Solid dark base */
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+/* Giant "ACES" Watermark */
+.footer::before {
+  content: "ACES";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25vw;
+  /* Massive */
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.03);
+  z-index: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* =====================
+   CONTENT GRID
+===================== */
+.footer-content {
+  position: relative;
+  z-index: 1;
+  /* Above the watermark */
+  padding: 6rem 0 4rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  /* Balanced 3-column layout */
+  gap: 4rem;
+  align-items: start;
+}
+
+/* =====================
+   BRAND
+===================== */
+.footer-section h3 {
+  font-family: var(--font-display);
+  /* Orbitron */
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: var(--accent-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+
+.footer-section p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 360px;
+  font-size: 0.95rem;
+}
+
+.tagline {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(34, 211, 238, 0.08);
+  color: var(--accent-primary);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  border-radius: 8px;
+  display: inline-block;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* =====================
+   LINKS
+===================== */
+.footer-section h4 {
+  font-family: var(--font-display);
+  margin-bottom: 1.8rem;
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 1rem;
+}
+
+.footer-section ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+  font-size: 1rem;
+}
+
+.footer-section ul li a:hover {
+  color: var(--accent-primary);
+  padding-left: 6px;
+  /* Slide effect */
+}
+
+/* =====================
+   SOCIAL
+===================== */
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.social-links a {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  /* Squircle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.social-links a:hover {
+  background: var(--accent-primary);
+  color: #000;
+  /* Contrast on hover */
+  border-color: var(--accent-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px var(--neon-glow);
+}
+
+/* =====================
+   BOTTOM BAR
+===================== */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Center Quick Links and Connect columns */
+.footer-section:nth-child(2),
+.footer-section:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* =====================
+   SOCIAL
+===================== */
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+  /* Ensure icons are centered */
+}
+
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .footer::before {
+    font-size: 40vw;
+    /* Even bigger relative on mobile */
+    top: 20%;
+    opacity: 0.1;
+    /* Fade it out more */
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}

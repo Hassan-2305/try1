@@ -1,0 +1,70 @@
+.newsletter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* CARD */
+.newsletter-card {
+  position: relative;
+  background: radial-gradient(
+      120% 120% at top left,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.02)
+    ),
+    #0b0f1a;
+  border-radius: 18px;
+  padding: 24px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Glow effect */
+.card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(90, 140, 255, 0.25),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.newsletter-card:hover .card-glow {
+  opacity: 1;
+}
+
+.newsletter-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* TEXT */
+.newsletter-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.newsletter-card p {
+  font-size: 14px;
+  opacity: 0.75;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.read-btn {
+  background: none;
+  border: none;
+  color: #7aa2ff;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.read-btn:hover {
+  text-decoration: underline;
+}

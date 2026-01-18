@@ -1,0 +1,241 @@
+/* =====================
+   NAVBAR BASE
+===================== */
+.navbar {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  min-width: 600px;
+  /* Ensure enough space */
+  height: 70px;
+  z-index: 9999;
+  background: rgba(5, 2, 13, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  padding: 0 1.5rem;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar.scrolled {
+  background: rgba(5, 2, 13, 0.85);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  top: 1.5rem;
+  /* Slight compact move on scroll */
+}
+
+/* =====================
+   NAV CONTAINER
+===================== */
+.nav-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* =====================
+   LOGO
+===================== */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 54px;
+  /* Significantly larger */
+  width: auto;
+  filter: drop-shadow(0 0 15px var(--neon-glow)) brightness(1.2);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Bouncy pop */
+}
+
+.logo:hover .logo-img {
+  transform: scale(1.15) rotate(-3deg);
+  /* Playful hover */
+}
+
+/* =====================
+   DESKTOP LINKS
+===================== */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  list-style: none;
+}
+
+.nav-links li a {
+  position: relative;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+}
+
+.nav-links li a:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-3px) scale(1.05);
+  /* Dock jump effect */
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent-gradient);
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: var(--text-main);
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
+
+.nav-links li a.active {
+  color: var(--text-main);
+}
+
+/* =====================
+   MOBILE TOGGLE
+===================== */
+.mobile-toggle {
+  display: none;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+/* =====================
+   MOBILE MENU
+===================== */
+@media (max-width: 900px) {
+  .mobile-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    right: -100%;
+    width: 75%;
+    max-width: 320px;
+    height: calc(100vh - 80px);
+    background: rgba(5, 2, 13, 0.95);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem;
+    gap: 1.6rem;
+    transition: right 0.35s ease;
+    border-left: 1px solid var(--border-soft);
+
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li a {
+    font-size: 1.1rem;
+  }
+}
+
+/* =====================
+   OVERLAY
+===================== */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 90;
+}
+
+.navbar.on-hero {
+  border-bottom-color: transparent;
+}
+
+.navbar.on-hero::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  /* Hug the border */
+  border-radius: 100px;
+  padding: 1px;
+  /* border width */
+  background: linear-gradient(90deg, #22d3ee, var(--accent-primary), rgba(76, 29, 149, 0.5));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.navbar.on-hero .nav-links li a {
+  color: var(--text-main);
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent-gradient);
+  transition: width 0.35s ease, left 0.35s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+  left: 0;
+}
+
+.navbar.on-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-gradient);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* =====================
+   MOBILE FIXES
+===================== */
+@media (max-width: 900px) {
+  .navbar {
+    min-width: unset;
+    width: 90%;
+    top: 1rem;
+    padding: 0 1rem;
+    height: 60px;
+  }
+
+  .logo-img {
+    height: 40px;
+  }
+}
