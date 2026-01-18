@@ -9,7 +9,8 @@
   width: fit-content;
   min-width: 600px;
   /* Ensure enough space */
-  height: 70px;
+  height: 60px;
+  /* Reduced from 70px */
   z-index: 9999;
   background: rgba(5, 2, 13, 0.65);
   backdrop-filter: blur(24px);
@@ -221,6 +222,133 @@
   background: var(--accent-gradient);
   opacity: 0.08;
   pointer-events: none;
+}
+
+
+/* =====================
+   DYNAMIC ISLAND (DESKTOP)
+===================== */
+@media (min-width: 901px) {
+
+  /* Base transitions for smooth island effect */
+  .navbar {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Apple-like spring */
+  }
+
+  .nav-links {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+  }
+
+  /* Scrolled State: The Notch */
+  .navbar.scrolled {
+    min-width: 50px;
+    /* Condensed width */
+    width: auto;
+    padding: 0 8px;
+    height: 42px;
+    /* True notch height (reduced) */
+    background: #000;
+    border-color: rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    gap: 0;
+  }
+
+  .navbar.scrolled .nav-container {
+    gap: 0;
+  }
+
+  /* Hide links in notch mode */
+  .navbar.scrolled .nav-links {
+    width: 0;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+    gap: 0;
+  }
+
+  /* Adjust logo in notch mode */
+  .navbar.scrolled .logo {
+    padding: 0 0.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Space for the green dot */
+  }
+
+  /* Green Dot Indicator */
+  .navbar.scrolled .logo::after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: #4ade80;
+    /* Green active dot */
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.8);
+    animation: pulseDot 2s infinite;
+  }
+
+  @keyframes pulseDot {
+    0% {
+      opacity: 0.6;
+      transform: scale(0.9);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    100% {
+      opacity: 0.6;
+      transform: scale(0.9);
+    }
+  }
+
+  .navbar.scrolled .logo-img {
+    height: 28px;
+    /* Compact logo */
+  }
+
+  /* HOVER STATE: EXPAND */
+  .navbar.scrolled:hover {
+    min-width: 600px;
+    height: 60px;
+    /* Matches base height */
+    padding: 0 1.5rem;
+    background: rgba(5, 2, 13, 0.85);
+    border-radius: 100px;
+  }
+
+  .navbar.scrolled:hover .logo::after {
+    display: none;
+    /* Hide dot on expand */
+  }
+
+  .navbar.scrolled:hover .logo {
+    gap: 0;
+  }
+
+  .navbar.scrolled:hover .nav-links {
+    width: auto;
+    max-width: 600px;
+    opacity: 1;
+    transform: scale(1);
+    gap: 2.2rem;
+    pointer-events: auto;
+  }
+
+  .navbar.scrolled:hover .logo-img {
+    height: 54px;
+    /* Restore logo size */
+  }
 }
 
 /* =====================

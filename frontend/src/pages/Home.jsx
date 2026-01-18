@@ -139,72 +139,67 @@ const Home = () => {
       {/* =====================
           HERO SECTION
       ===================== */}
-      {/* =====================
-          HERO SECTION
-      ===================== */}
       <section className="hero-section">
-        <div className="hero-flex-layout">
-          {/* Item 1: Gradient Blinds (Background on Desktop, Top Block on Mobile) */}
-          <div className="hero-bg">
-            <GradientBlinds
-              gradientColors={GRADIENT_COLORS}
-              angle={15}
-              noise={0.25}
-              blindCount={14}
-              blindMinWidth={60}
-              spotlightRadius={0.45}
-              spotlightSoftness={1.2}
-              spotlightOpacity={1}
-              mouseDampening={0.18}
-              shineDirection="left"
-              mixBlendMode="screen"
-            />
-          </div>
+        <div className="hero-bg">
+          <GradientBlinds
+            gradientColors={GRADIENT_COLORS}
+            angle={15}
+            noise={0.25}
+            blindCount={14}
+            blindMinWidth={60}
+            spotlightRadius={0.45}
+            spotlightSoftness={1.2}
+            spotlightOpacity={1}
+            mouseDampening={0.18}
+            shineDirection="left"
+            mixBlendMode="screen"
+          />
+        </div>
 
-          {/* Item 2: Hero Text */}
-          <div className="container hero-content reveal">
-            <h1 className="hero-title">
-              Code. Connect. <span className="highlight typewriter">{text}</span>
-              <span className="cursor">|</span>
-            </h1>
+        <div className="container hero-content reveal">
+          <h1 className="hero-title">
+            Code. Connect. <span className="highlight typewriter">{text}</span>
+            <span className="cursor">|</span>
+          </h1>
 
-            <p className="hero-subtitle">
-              Association of Computer Science and Engineering Students at CUSAT.
-            </p>
+          <p className="hero-subtitle">
+            Association of Computer Science and Engineering Students at CUSAT.
+          </p>
 
-            <div className="hero-cta">
-              <Link to="/events" className="btn btn-primary">
-                Explore Events <ArrowRight size={18} />
-              </Link>
-              <Link to="/team" className="btn btn-outline">
-                Meet the Team
-              </Link>
-            </div>
-          </div>
-
-          {/* Item 3: Tech Stack Marquee */}
-          <div className="tech-marquee-container">
-            <div className="tech-divider tech-divider-top"></div>
-            <div className="tech-marquee-track">
-              {[...Array(4)].map((_, i) => (
-                <div className="marquee-group" key={i}>
-                  <span className="tech-item"><Github size={20} /> GITHUB</span>
-                  <span className="tech-item"><FileCode size={20} /> JAVASCRIPT</span>
-                  <span className="tech-item"><Atom size={20} /> REACT</span>
-                  <span className="tech-item"><Code size={20} /> PYTHON</span>
-                  <span className="tech-item"><Server size={20} /> LINUX</span>
-                  <span className="tech-item"><Workflow size={20} /> DEVOPS</span>
-                  <span className="tech-item"><Cpu size={20} /> AI / ML</span>
-                  <span className="tech-item"><Terminal size={20} /> CYBERSEC</span>
-                  <span className="tech-item"><Database size={20} /> CLOUD</span>
-                  <span className="tech-item"><Globe size={20} /> OPEN SOURCE</span>
-                </div>
-              ))}
-            </div>
-            <div className="tech-divider tech-divider-bottom"></div>
+          <div className="hero-cta">
+            <Link to="/events" className="btn btn-primary">
+              Explore Events <ArrowRight size={18} />
+            </Link>
+            <Link to="/team" className="btn btn-outline">
+              Meet the Team
+            </Link>
           </div>
         </div>
       </section>
+
+      {/* =====================
+          TECH STACK MARQUEE
+      ===================== */}
+      <div className="tech-marquee-container">
+        <div className="tech-divider tech-divider-top"></div>
+        <div className="tech-marquee-track">
+          {[...Array(4)].map((_, i) => (
+            <div className="marquee-group" key={i}>
+              <span className="tech-item"><Github size={20} /> GITHUB</span>
+              <span className="tech-item"><FileCode size={20} /> JAVASCRIPT</span>
+              <span className="tech-item"><Atom size={20} /> REACT</span>
+              <span className="tech-item"><Code size={20} /> PYTHON</span>
+              <span className="tech-item"><Server size={20} /> LINUX</span>
+              <span className="tech-item"><Workflow size={20} /> DEVOPS</span>
+              <span className="tech-item"><Cpu size={20} /> AI / ML</span>
+              <span className="tech-item"><Terminal size={20} /> CYBERSEC</span>
+              <span className="tech-item"><Database size={20} /> CLOUD</span>
+              <span className="tech-item"><Globe size={20} /> OPEN SOURCE</span>
+            </div>
+          ))}
+        </div>
+        <div className="tech-divider tech-divider-bottom"></div>
+      </div>
 
       {/* =====================
           ABOUT SECTION

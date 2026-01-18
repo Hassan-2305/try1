@@ -10,7 +10,8 @@
 
 .main-content {
   flex: 1;
-  padding-top: 80px; /* navbar height */
+  padding-top: 80px;
+  /* navbar height */
 }
 
 /* =====================

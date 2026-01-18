@@ -18,17 +18,17 @@ const Navbar = () => {
     }, []);
 
     useEffect(() => {
-  const hero = document.querySelector(".hero-section");
-  if (!hero) return;
+        const hero = document.querySelector(".hero-section");
+        if (!hero) return;
 
-  const observer = new IntersectionObserver(
-    ([entry]) => setOnHero(entry.isIntersecting),
-    { threshold: 0.6 }
-  );
+        const observer = new IntersectionObserver(
+            ([entry]) => setOnHero(entry.isIntersecting),
+            { threshold: 0.6 }
+        );
 
-  observer.observe(hero);
-  return () => observer.disconnect();
-}, []);
+        observer.observe(hero);
+        return () => observer.disconnect();
+    }, []);
 
 
     const toggleMenu = () => setIsOpen(!isOpen);
@@ -45,15 +45,15 @@ const Navbar = () => {
     ];
 
     return (
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${onHero ? 'on-hero' : ''}`}>
+        <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${onHero ? 'on-hero' : ''}`}>
 
             <div className="container nav-container">
                 <Link to="/" className="logo">
-                 <img
-                     src={acesLogo}
-                     alt="ACES CUSAT Logo"
-                     className="logo-img"
-                     />
+                    <img
+                        src={acesLogo}
+                        alt="ACES CUSAT Logo"
+                        className="logo-img"
+                    />
                 </Link>
 
 
