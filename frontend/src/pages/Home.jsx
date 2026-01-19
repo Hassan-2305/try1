@@ -142,6 +142,7 @@ const Home = () => {
       <section className="hero-section">
         <div className="hero-bg">
           <GradientBlinds
+            className="gradient-blind"
             gradientColors={GRADIENT_COLORS}
             angle={15}
             noise={0.25}

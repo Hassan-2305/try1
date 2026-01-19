@@ -1,40 +1,21 @@
-/* =====================
-   FOOTER BASE
-===================== */
+/* Footer */
 .footer {
   position: relative;
-  margin-top: 8rem;
+  width: 100%;
   background: #020617;
-  /* Solid dark base */
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
 }
 
-/* Giant "ACES" Watermark */
-.footer::before {
-  content: "ACES";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 25vw;
-  /* Massive */
-  font-weight: 900;
-  color: transparent;
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.03);
-  z-index: 0;
-  pointer-events: none;
-  white-space: nowrap;
-}
-
-/* =====================
-   CONTENT GRID
-===================== */
+/* Footer content */
 .footer-content {
   position: relative;
   z-index: 1;
   /* Above the watermark */
-  padding: 6rem 0 4rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 2rem 4rem;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   /* Balanced 3-column layout */
@@ -42,9 +23,7 @@
   align-items: start;
 }
 
-/* =====================
-   BRAND
-===================== */
+/* Brand */
 .footer-section h3 {
   font-family: var(--font-display);
   /* Orbitron */
@@ -80,9 +59,7 @@
   letter-spacing: -0.02em;
 }
 
-/* =====================
-   LINKS
-===================== */
+/* Links */
 .footer-section h4 {
   font-family: var(--font-display);
   margin-bottom: 1.8rem;
@@ -117,9 +94,7 @@
   /* Slide effect */
 }
 
-/* =====================
-   SOCIAL
-===================== */
+/* Social */
 .social-links {
   display: flex;
   gap: 0.8rem;
@@ -149,9 +124,7 @@
   box-shadow: 0 0 20px var(--neon-glow);
 }
 
-/* =====================
-   BOTTOM BAR
-===================== */
+/* Bottom bar */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 2rem 0;
@@ -174,9 +147,7 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
-/* =====================
-   SOCIAL
-===================== */
+/* Social */
 .social-links {
   display: flex;
   gap: 0.8rem;
@@ -190,14 +161,7 @@
     grid-template-columns: 1fr;
     gap: 3rem;
     text-align: center;
-  }
-
-  .footer::before {
-    font-size: 40vw;
-    /* Even bigger relative on mobile */
-    top: 20%;
-    opacity: 0.1;
-    /* Fade it out more */
+    padding: 4rem 1.5rem 3rem;
   }
 
   .social-links {

@@ -1,24 +1,30 @@
-.gradient-blind {
-  position: absolute;
-  inset: -20%;
-  z-index: 0;
-  pointer-events: none;
+@media (max-width: 900px) {
+  .gradient-blind {
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
 
-  background: repeating-linear-gradient(115deg,
-      rgba(6, 182, 212, 0.00) 0%,
-      rgba(6, 182, 212, 0.00) 8%,
+    background: repeating-linear-gradient(115deg,
+        rgba(6, 182, 212, 0.00) 0%,
+        rgba(6, 182, 212, 0.00) 8%,
 
-      rgba(103, 232, 249, 0.18) 14%,
-      rgba(6, 182, 212, 0.35) 18%,
-      rgba(103, 232, 249, 0.18) 22%,
+        rgba(103, 232, 249, 0.18) 14%,
+        rgba(6, 182, 212, 0.35) 18%,
+        rgba(103, 232, 249, 0.18) 22%,
 
-      rgba(6, 182, 212, 0.00) 30%);
+        rgba(6, 182, 212, 0.00) 30%);
 
-  filter: blur(6px);
-  opacity: 0.45;
-  mix-blend-mode: screen;
+    filter: blur(6px);
+    opacity: 0.45;
+    mix-blend-mode: screen;
 
-  animation: slideBlinds 10s linear infinite;
+    animation: slideBlinds 10s linear infinite;
+  }
 }
 
 @keyframes slideBlinds {

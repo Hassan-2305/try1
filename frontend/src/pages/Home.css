@@ -1,6 +1,4 @@
-/* =====================
-   SCROLL REVEAL
-===================== */
+/* Scroll reveal animation */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -12,12 +10,16 @@
   transform: translateY(0);
 }
 
-/* =====================
-   STAGGERED REVEAL (HORIZONTAL SLIDE)
-===================== */
+/* Home page */
+.home-page {
+  width: 100%;
+}
+
+/* Staggered reveal animation */
 .reveal-stagger {
   opacity: 1 !important;
   transform: none !important;
+}
 }
 
 .reveal-stagger .what-card,
@@ -56,9 +58,7 @@
   transition-delay: 0.4s;
 }
 
-/* =====================
-   HERO
-===================== */
+/* Hero section */
 .hero-section {
   position: relative;
   min-height: 90vh;
@@ -67,6 +67,7 @@
   justify-content: center;
   overflow: hidden;
   z-index: 1;
+  width: 100%;
 }
 
 .hero-bg {
@@ -108,17 +109,12 @@
   justify-content: center;
 }
 
-/* =====================
-   ABOUT
-===================== */
-/* =====================
-   ABOUT
-===================== */
+/* About section */
 .about-section {
   position: relative;
   padding: 8rem 0;
   overflow: hidden;
-  /* Contain the glow */
+  width: 100%;
 }
 
 /* Ambient Glow Behind */
@@ -169,9 +165,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* =====================
-   ABOUT STATS (BENTO)
-===================== */
+/* About stats (bento) */
 .about-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -240,14 +234,10 @@
   font-weight: 600;
 }
 
-/* =====================
-   WHAT WE DO
-===================== */
-/* =====================
-   WHAT WE DO
-===================== */
+/* What We Do section */
 .what-we-do-section {
   padding: 6rem 0;
+  width: 100%;
 }
 
 .section-title {
@@ -360,12 +350,11 @@
 }
 
 
-/* =====================
-   MISSION SECTION
-===================== */
+/* Mission section */
 .mission-section {
   padding: 8rem 0;
   position: relative;
+  width: 100%;
 }
 
 .mission-grid {
@@ -476,9 +465,7 @@
 }
 
 
-/* =====================
-   ACTIVITY HEATMAP
-===================== */
+/* Activity heatmap */
 .activity-map-container {
   margin-top: 4rem;
   background: rgba(2, 6, 23, 0.5);
@@ -607,9 +594,7 @@
   z-index: 1;
 }
 
-/* =====================
-   GRADIENT BLINDS ANIMATION
-===================== */
+/* Gradient blinds animation */
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -624,14 +609,13 @@
   }
 }
 
-/* =====================
-   INFINITE MARQUEE
-===================== */
+/* Infinite marquee */
 .gallery-section {
   padding: 6rem 0;
   overflow: hidden;
   background: transparent;
   position: relative;
+  width: 100%;
 }
 
 .marquee-wrapper {
@@ -651,9 +635,7 @@
   will-change: transform;
 }
 
-/* =====================
-   TECH STACK MARQUEE
-===================== */
+/* Tech stack marquee */
 .tech-marquee-container {
   padding: 1.5rem 0;
   overflow: hidden;
@@ -665,6 +647,7 @@
   flex-direction: column;
   align-items: stretch;
   gap: 1rem;
+  width: 100%;
 }
 
 /* Glowing divider lines */
@@ -910,17 +893,26 @@
   }
 }
 
-/* =====================
-   MOBILE PAGE FIXES (NEW)
-===================== */
+/* Mobile page fixes (new) */
 @media (max-width: 900px) {
 
   /* Hero Section */
   .hero-section {
     min-height: 100dvh;
-    padding-top: 80px;
+    padding-top: 75px;
     /* Clear navbar */
     align-items: center;
+    position: relative;
+    /* Ensure parent is relative */
+  }
+
+  /* Force Gradient Blinds to be background */
+  .hero-bg {
+    position: absolute !important;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .hero-title {
@@ -978,11 +970,25 @@
   /* Mission */
   .mission-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .mission-card {
     height: auto;
-    min-height: 280px;
+    min-height: 250px;
+    padding: 2rem 1.5rem;
+    justify-content: flex-start;
+    /* Better for mobile readability */
+  }
+
+  .mission-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .mission-card p {
+    font-size: 0.9rem;
+    max-width: 100%;
   }
 
   /* Activity Map */
