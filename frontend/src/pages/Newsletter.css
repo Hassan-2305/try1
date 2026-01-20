@@ -1,11 +1,53 @@
-.newsletter-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
+/* =================================
+   PAGE
+================================= */
+.newsletter-page {
+  padding-top: 200px; /* clears navbar + glow */
+  padding-bottom: 140px;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* CARD */
+/* Align content with navbar width */
+.newsletter-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Title spacing */
+.newsletter-title {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+/* =================================
+   GRID
+================================= */
+.newsletter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .newsletter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .newsletter-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* =================================
+   CARD
+================================= */
 .newsletter-card {
   position: relative;
   background: radial-gradient(
@@ -14,57 +56,98 @@
       rgba(255, 255, 255, 0.02)
     ),
     #0b0f1a;
+
   border-radius: 18px;
-  padding: 24px;
+  padding: 28px;
+  min-height: 170px;
+
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Glow effect */
+.newsletter-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.6);
+}
+
+/* =================================
+   GLOW
+================================= */
 .card-glow {
   position: absolute;
   inset: 0;
   background: radial-gradient(
     circle at top right,
-    rgba(90, 140, 255, 0.25),
+    rgba(90, 140, 255, 0.28),
     transparent 60%
   );
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .newsletter-card:hover .card-glow {
   opacity: 1;
 }
 
-.newsletter-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
-}
-
-/* TEXT */
+/* =================================
+   TEXT
+================================= */
 .newsletter-card h3 {
   font-size: 18px;
+  font-weight: 600;
   margin-bottom: 10px;
 }
 
 .newsletter-card p {
   font-size: 14px;
+  line-height: 1.6;
   opacity: 0.75;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
-/* BUTTON */
+/* =================================
+   READ BUTTON
+================================= */
 .read-btn {
-  background: none;
-  border: none;
   color: #7aa2ff;
   font-weight: 600;
-  cursor: pointer;
-  padding: 0;
+  font-size: 14px;
+  align-self: flex-start;
 }
 
-.read-btn:hover {
+.newsletter-card:hover .read-btn {
   text-decoration: underline;
+}
+
+/* =================================
+   MOBILE POLISH
+================================= */
+@media (max-width: 480px) {
+  .newsletter-page {
+    padding-top: 160px;
+    padding-bottom: 120px;
+  }
+
+  .newsletter-card {
+    padding: 26px 22px;
+  }
+
+  .newsletter-card h3 {
+    font-size: 17px;
+  }
+
+  .newsletter-card p {
+    font-size: 13.5px;
+  }
+
+  .read-btn {
+    font-size: 15px;
+  }
 }

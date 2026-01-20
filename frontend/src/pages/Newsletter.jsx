@@ -3,40 +3,40 @@ import { useNavigate } from 'react-router-dom';
 import './Newsletter.css';
 
 const newsletters = [
-  { title: 'January 2024 Edition', desc: 'Latest updates from the department.' },
-  { title: 'February 2024 Edition', desc: 'Insights and announcements.' },
-  { title: 'March 2024 Edition', desc: 'Events and highlights.' },
-  { title: 'Special Edition', desc: 'Exclusive stories and updates.' },
-  { title: 'Annual Report', desc: 'Yearly overview and achievements.' },
-  { title: 'Tech Digest', desc: 'Technology and innovation news.' },
+  { slug: 'jan-2024', title: 'January 2024 Edition', desc: 'Latest updates from the department.' },
+  { slug: 'feb-2024', title: 'February 2024 Edition', desc: 'Insights and announcements.' },
+  { slug: 'mar-2024', title: 'March 2024 Edition', desc: 'Events and highlights.' },
+  { slug: 'special', title: 'Special Edition', desc: 'Exclusive stories and updates.' },
+  { slug: 'annual', title: 'Annual Report', desc: 'Yearly overview and achievements.' },
+  { slug: 'tech', title: 'Tech Digest', desc: 'Technology and innovation news.' },
 ];
 
 const Newsletter = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="container section">
-      <h1 className="heading-lg">Newsletter</h1>
+    <section className="newsletter-page">
+      <div className="newsletter-wrapper">
+        <h1 className="heading-lg newsletter-title">Newsletter</h1>
 
-      <div className="newsletter-grid">
-        {newsletters.map((item, index) => (
-          <div
-            key={index}
-            className="newsletter-card"
-            onClick={() => navigate('/newsletter/jan-2024')}
-          >
-            <div className="card-glow" />
+        <div className="newsletter-grid">
+          {newsletters.map((item) => (
+            <article
+              key={item.slug}
+              className="newsletter-card"
+              onClick={() => navigate(`/newsletter/${item.slug}`)}
+            >
+              <div className="card-glow" />
 
-            <h3>{item.title}</h3>
-            <p>{item.desc}</p>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
 
-            <button className="read-btn" type="button">
-              Read Now →
-            </button>
-          </div>
-        ))}
+              <span className="read-btn">Read Now →</span>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
